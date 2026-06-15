@@ -1,1 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdenbi Iabbadene — AI Engineer & Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #0A0E1A;
+      --bg2: #0F1525;
+      --bg3: #151C30;
+      --border: rgba(255,255,255,0.07);
+      --border-hi: rgba(99,179,237,0.3);
+      --text: #E8EDF5;
+      --muted: #7A8BA8;
+      --accent: #63B3ED;
+      --accent2: #4FD1C5;
+      --accent3: #B794F4;
+      --green: #68D391;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,14,26,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 56px;
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 13px; color: var(--accent);
+      letter-spacing: .05em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 13px;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 2rem 4rem;
+      max-width: 900px; margin: 0 auto;
+      position: relative;
+    }
+    .hero-tag {
+      font-family: var(--mono); font-size: 12px; color: var(--accent);
+      letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .hero-tag::before {
+      content: ''; display: block; width: 24px; height: 1px; background: var(--accent);
+    }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 600; line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 1.5rem;
+    }
+    h1 span { color: var(--accent); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 560px; margin-bottom: 2.5rem; line-height: 1.8;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .65rem 1.4rem; border-radius: 6px;
+      font-size: 13px; font-weight: 500; text-decoration: none;
+      transition: all .2s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #0A0E1A;
+    }
+    .btn-primary:hover { background: #90CDF4; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border-hi);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem;
+      border-top: 1px solid var(--border); padding-top: 2rem;
+    }
+    .stat-num {
+      font-family: var(--mono); font-size: 1.8rem; font-weight: 500;
+      color: var(--accent); display: block;
+    }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: .2rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+    .section-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .section-tag {
+      font-family: var(--mono); font-size: 11px; color: var(--accent);
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+    h2 { font-size: 1.6rem; font-weight: 600; letter-spacing: -.01em; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-text { color: var(--muted); line-height: 1.9; }
+    .about-text strong { color: var(--text); font-weight: 500; }
+    .skills-grid { display: flex; flex-direction: column; gap: .75rem; }
+    .skill-item { display: flex; flex-direction: column; gap: .3rem; }
+    .skill-label { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+    .skill-bar { background: var(--bg3); border-radius: 3px; height: 4px; overflow: hidden; }
+    .skill-fill { height: 4px; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-item {
+      display: grid; grid-template-columns: 1px 1fr;
+      gap: 0 2rem; position: relative;
+    }
+    .exp-line {
+      background: var(--border); width: 1px;
+      position: relative;
+    }
+    .exp-dot {
+      position: absolute; top: 6px; left: 50%;
+      transform: translateX(-50%);
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+    }
+    .exp-dot.featured { background: var(--accent3); box-shadow: 0 0 0 4px rgba(183,148,244,.15); }
+    .exp-content { padding-bottom: 3rem; }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: .5rem; margin-bottom: .5rem; }
+    .exp-role { font-size: 1rem; font-weight: 600; color: var(--text); }
+    .exp-company { font-size: .85rem; color: var(--accent); font-weight: 500; }
+    .exp-date { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .exp-badge {
+      font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 99px;
+      background: rgba(183,148,244,.12); color: var(--accent3);
+      border: 1px solid rgba(183,148,244,.25); letter-spacing: .04em;
+    }
+    .exp-desc { color: var(--muted); font-size: .9rem; margin-top: .75rem; line-height: 1.8; }
+    .exp-desc li { list-style: none; padding-left: 1rem; position: relative; margin-bottom: .4rem; }
+    .exp-desc li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: .7rem; top: .25rem; }
+    .exp-desc strong { color: var(--text); font-weight: 500; }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+    .tag {
+      font-family: var(--mono); font-size: 11px;
+      padding: 3px 9px; border-radius: 4px;
+      background: var(--bg3); color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+    .project-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.5rem;
+      transition: border-color .2s, transform .2s;
+      text-decoration: none; color: inherit; display: block;
+    }
+    .project-card:hover { border-color: var(--border-hi); transform: translateY(-3px); }
+    .project-card.featured { border-color: rgba(183,148,244,.2); }
+    .project-icon { font-size: 1.5rem; margin-bottom: .75rem; }
+    .project-name { font-size: 1rem; font-weight: 600; margin-bottom: .4rem; color: var(--text); }
+    .project-desc { font-size: .85rem; color: var(--muted); line-height: 1.7; }
+    .project-result {
+      margin-top: .75rem; font-family: var(--mono); font-size: 12px;
+      color: var(--green); background: rgba(104,211,145,.08);
+      border: 1px solid rgba(104,211,145,.2);
+      padding: 4px 10px; border-radius: 4px; display: inline-block;
+    }
+    .project-links { display: flex; gap: .75rem; margin-top: 1rem; }
+    .project-link {
+      font-size: 12px; color: var(--muted); text-decoration: none;
+      display: flex; align-items: center; gap: .3rem;
+      transition: color .2s;
+    }
+    .project-link:hover { color: var(--accent); }
+
+    /* ── STACK ── */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+    .stack-cat {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.25rem;
+    }
+    .stack-cat-title { font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: .75rem; letter-spacing: .05em; }
+    .stack-items { display: flex; flex-direction: column; gap: .4rem; }
+    .stack-item { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: .5rem; }
+    .stack-item::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; }
+    .stack-item.highlight { color: var(--text); }
+    .stack-item.highlight::before { background: var(--accent3); }
+
+    /* ── CONTACT ── */
+    .contact-box {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 3rem; text-align: center;
+    }
+    .contact-box h2 { margin-bottom: .75rem; }
+    .contact-box p { color: var(--muted); margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .contact-link {
+      display: flex; align-items: center; gap: .5rem;
+      color: var(--muted); text-decoration: none; font-size: 14px;
+      padding: .6rem 1.2rem; border-radius: 6px;
+      border: 1px solid var(--border);
+      transition: all .2s;
+    }
+    .contact-link:hover { color: var(--accent); border-color: var(--border-hi); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border); padding: 2rem;
+      text-align: center; color: var(--muted); font-size: 12px;
+      font-family: var(--mono);
+    }
+
+    /* ── CURSOR BLINK ── */
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .cursor { display: inline-block; width: 2px; height: 1em; background: var(--accent); vertical-align: middle; animation: blink 1s step-end infinite; margin-left: 3px; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .hero { padding: 5rem 1.25rem 3rem; }
+      section { padding: 3rem 1.25rem; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .contact-box { padding: 2rem 1.25rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">abdenbi.dev</span>
+    <ul class="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#experience">Expérience</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-tag">Disponible — CDI / CDD · Sept. 2026</p>
+    <h1>Abdenbi<br /><span>Iabbadene</span></h1>
+    <p class="hero-sub">
+      Je conçois et orchestre des <strong>systèmes multi-agents IA</strong> en production.<br/>
+      Passionné par la <strong>GenAI appliquée à la finance</strong> — LangGraph, LlamaIndex, LLMs.<br/>
+      Alternant Data Science & IA chez <strong>Dataltist – Forsides, Paris</strong>.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn btn-outline">Me contacter</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">29<span style="font-size:1rem;color:var(--muted)">/349</span></span>
+        <p class="stat-label">Challenge ML Crédit Agricole</p>
+      </div>
+      <div>
+        <span class="stat-num">+8%</span>
+        <p class="stat-label">Bénéfice moyen en backtesting</p>
+      </div>
+      <div>
+        <span class="stat-num">3+</span>
+        <p class="stat-label">Systèmes agents IA en prod</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal">
+      <span class="section-tag">01 · À propos</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p style="margin-bottom:1rem;">
+          Titulaire d'un <strong>double Master en Intelligence Artificielle et Data Science</strong> (UMMTO + IMA Angers),
+          je me spécialise dans la conception de systèmes IA autonomes — des pipelines RAG aux architectures multi-agents LLM.
+        </p>
+        <p style="margin-bottom:1rem;">
+          En alternance chez <strong>Dataltist – Forsides</strong>, j'ai conçu de A à Z un système d'agents spécialisés
+          capable d'extraire et d'analyser automatiquement des données financières complexes (QRT, rapports SFCR).
+        </p>
+        <p>
+          Je cherche un <strong>CDI / CDD à partir de septembre 2026</strong> en Data Science, AI Engineering
+          ou Generative AI.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <span class="skill-label">Agents IA & LLM</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-label">Machine Learning</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-label">Python & Data Engineering</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-label">Deep Learning</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-label">Power BI & Visualisation</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-label">SAS & Data Automation</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header reveal">
+      <span class="section-tag">02 · Expérience</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-item reveal">
+        <div class="exp-line"><div class="exp-dot featured"></div></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Data Science & IA générative</div>
+              <div class="exp-company">Dataltist – Forsides · Paris</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;">
+              <span class="exp-badge">⭐ Alternance</span>
+              <span class="exp-date">Sept. 2025 – Aujourd'hui</span>
+            </div>
+          </div>
+          <ul class="exp-desc">
+            <li><strong>Conception et orchestration d'un système multi-agents IA</strong> pour l'extraction automatique de tableaux financiers (QRT) depuis les rapports SFCR — pipeline complet de l'ingestion au reporting.</li>
+            <li><strong>Création d'agents spécialisés</strong> (extraction, validation, enrichissement, synthèse) avec LangGraph, LlamaIndex, Smlagents et monitoring Langfuse.</li>
+            <li><strong>Top 10% au challenge ML Crédit Agricole Assurance</strong> — prédiction prime pure Incendie (classement 29/349).</li>
+            <li><strong>Automatisation complète</strong> du flux analyse/nettoyage données avec macros SAS & Python.</li>
+            <li>Reporting et visualisation avec Python et Power BI.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">LangGraph</span>
+            <span class="tag">LlamaIndex</span>
+            <span class="tag">Smlagents</span>
+            <span class="tag">Langfuse</span>
+            <span class="tag">SAS</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-line"><div class="exp-dot"></div></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Customer Success & Data Analyst</div>
+              <div class="exp-company">Audencia · Nantes</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;">
+              <span class="exp-date">Avr. – Août 2025</span>
+            </div>
+          </div>
+          <ul class="exp-desc">
+            <li>Participation à des projets IA : création d'un <strong>chatbot</strong> et d'un <strong>formulaire intelligent</strong>.</li>
+            <li>Analyse, nettoyage et structuration des données CRM.</li>
+            <li>Tableaux de bord Power BI & recommandations data-driven.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">CRM</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Chatbot</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-line"><div class="exp-dot"></div></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Projet de fin d'étude — Trading Algorithmique</div>
+              <div class="exp-company">Université Mouloud Mammeri</div>
+            </div>
+            <span class="exp-date">Fév. – Sept. 2024</span>
+          </div>
+          <ul class="exp-desc">
+            <li><strong>Deep Learning ensembliste</strong> (LSTM, BLSTM, attention) sur données Bitcoin via API Binance.</li>
+            <li>Sélection de features XGBoost — backtesting : <strong>+8% de bénéfice moyen sur 2 mois</strong>.</li>
+            <li>Conception de dashboards analytiques pour visualiser la performance des stratégies.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">LSTM</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">Binance API</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-tag">03 · Projets</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card featured reveal">
+        <div class="project-icon">🤖</div>
+        <div class="project-name">Système multi-agents SFCR</div>
+        <div class="project-desc">Pipeline d'agents IA spécialisés pour l'extraction et l'analyse automatique de tableaux financiers (QRT) depuis des rapports SFCR. Orchestration LangGraph + monitoring Langfuse.</div>
+        <div class="project-result">Production · Dataltist 2025</div>
+        <div class="tags" style="margin-top:.75rem;">
+          <span class="tag">LangGraph</span>
+          <span class="tag">LlamaIndex</span>
+          <span class="tag">Langfuse</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon">📈</div>
+        <div class="project-name">Trading algorithmique RL</div>
+        <div class="project-desc">Modèle ensembliste LSTM/BLSTM/attention sur données Bitcoin (API Binance) avec sélection de features XGBoost et backtesting systématique.</div>
+        <div class="project-result">+8% bénéfice moyen · 2 mois</div>
+        <div class="tags" style="margin-top:.75rem;">
+          <span class="tag">PyTorch</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">Binance API</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/AbdenbiIabbadene" class="project-link" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon">🏆</div>
+        <div class="project-name">Challenge ML — Crédit Agricole</div>
+        <div class="project-desc">Prédiction de la prime pure Incendie par Machine Learning en compétition ouverte. Optimisation du pipeline de features engineering et des hyperparamètres.</div>
+        <div class="project-result">Top 10% · 29 / 349 équipes</div>
+        <div class="tags" style="margin-top:.75rem;">
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="border-style:dashed;opacity:.7;">
+        <div class="project-icon">🔜</div>
+        <div class="project-name">Bientôt — Projet open source</div>
+        <div class="project-desc">Un agent RAG open source pour l'analyse de documents financiers. Repo à venir sur GitHub.</div>
+        <div class="project-links">
+          <a href="https://github.com/AbdenbiIabbadene" class="project-link" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            Suivre sur GitHub
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack">
+    <div class="section-header reveal">
+      <span class="section-tag">04 · Stack technique</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-cat reveal">
+        <div class="stack-cat-title">Agents IA & LLM ⭐</div>
+        <div class="stack-items">
+          <span class="stack-item highlight">LangGraph</span>
+          <span class="stack-item highlight">LlamaIndex</span>
+          <span class="stack-item highlight">Smlagents</span>
+          <span class="stack-item highlight">Langfuse</span>
+          <span class="stack-item">Ollama (local)</span>
+        </div>
+      </div>
+      <div class="stack-cat reveal">
+        <div class="stack-cat-title">ML & Deep Learning</div>
+        <div class="stack-items">
+          <span class="stack-item">Scikit-learn</span>
+          <span class="stack-item">PyTorch</span>
+          <span class="stack-item">TensorFlow</span>
+          <span class="stack-item">XGBoost</span>
+        </div>
+      </div>
+      <div class="stack-cat reveal">
+        <div class="stack-cat-title">Data & Analytics</div>
+        <div class="stack-items">
+          <span class="stack-item">Python · Pandas</span>
+          <span class="stack-item">SAS (macros)</span>
+          <span class="stack-item">Power BI · Qlik</span>
+          <span class="stack-item">R · SQL</span>
+        </div>
+      </div>
+      <div class="stack-cat reveal">
+        <div class="stack-cat-title">Database & Cloud</div>
+        <div class="stack-items">
+          <span class="stack-item">PostgreSQL · MySQL</span>
+          <span class="stack-item">MongoDB</span>
+          <span class="stack-item">Google BigQuery</span>
+          <span class="stack-item">Git · GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box reveal">
+      <h2>Travaillons ensemble</h2>
+      <p>Je suis disponible pour un CDI / CDD à partir de septembre 2026 en Data Science, AI Engineering ou Generative AI. N'hésitez pas à me contacter.</p>
+      <div class="hero-btns" style="justify-content:center;margin-bottom:2rem;">
+        <a href="mailto:abdenbiiabbadene@gmail.com" class="btn btn-primary">Envoyer un email</a>
+      </div>
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/abdenbi-iabbadene" class="contact-link" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/AbdenbiIabbadene" class="contact-link" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="tel:+33625554698" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +33 6 25 55 46 98
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Abdenbi Iabbadene · 2026 · Construit avec HTML/CSS/JS</span>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
