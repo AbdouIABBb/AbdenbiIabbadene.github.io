@@ -8,10 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-.exp-more-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:12px;font-weight:500;color:var(--accent);background:rgba(99,179,237,.08);border:1px solid rgba(99,179,237,.2);border-radius:6px;padding:6px 14px;cursor:pointer;margin-top:.75rem;transition:all .2s;font-family:var(--sans);}
-.exp-more-btn:hover{background:rgba(99,179,237,.15);}
-.exp-more-btn svg{transition:transform .3s;}
-.exp-more-btn.open svg{transform:rotate(180deg);}
+
   
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -28,6 +25,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:2px;}
+
+.exp-more-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:12px;font-weight:500;color:var(--accent);background:rgba(99,179,237,.08);border:1px solid rgba(99,179,237,.2);border-radius:6px;padding:6px 14px;cursor:pointer;margin-top:.75rem;transition:all .2s;font-family:var(--sans);}
+.exp-more-btn:hover{background:rgba(99,179,237,.15);}
+.exp-more-btn svg{transition:transform .3s;}
+.exp-more-btn.open svg{transform:rotate(180deg);}
 
 /* ─── NAV ─── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(6,10,20,0.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;}
