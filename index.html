@@ -8,8 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-
-  
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --bg:#060A14;--bg2:#0C1120;--bg3:#121828;--bg4:#18203A;
@@ -25,11 +23,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:2px;}
-
-.exp-more-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:12px;font-weight:500;color:var(--accent);background:rgba(99,179,237,.08);border:1px solid rgba(99,179,237,.2);border-radius:6px;padding:6px 14px;cursor:pointer;margin-top:.75rem;transition:all .2s;font-family:var(--sans);}
-.exp-more-btn:hover{background:rgba(99,179,237,.15);}
-.exp-more-btn svg{transition:transform .3s;}
-.exp-more-btn.open svg{transform:rotate(180deg);}
 
 /* ─── NAV ─── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(6,10,20,0.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;}
@@ -132,13 +125,15 @@ h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;letter-spacing:-.025em;mar
 .exp-badge{font-size:10px;font-weight:600;padding:3px 10px;border-radius:99px;background:rgba(183,148,244,.1);color:var(--accent3);border:1px solid rgba(183,148,244,.2);}
 .exp-date{font-family:var(--mono);font-size:11px;color:var(--muted);}
 .exp-bullets{margin-top:1rem;display:flex;flex-direction:column;gap:.4rem;}
-.exp-more{display:none !important;}
-.exp-more.visible{display:flex !important;}
 .exp-bullets li{list-style:none;font-size:.875rem;color:var(--muted2);padding-left:1.2rem;position:relative;line-height:1.75;}
 .exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.65rem;top:.38rem;}
 .exp-bullets strong{color:var(--text);font-weight:500;}
 .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem;}
 .tag{font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:5px;background:var(--bg3);color:var(--muted);border:1px solid var(--border);}
+.exp-more-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:12px;font-weight:500;color:var(--accent);background:rgba(99,179,237,.08);border:1px solid rgba(99,179,237,.2);border-radius:6px;padding:6px 14px;cursor:pointer;transition:all .2s;font-family:var(--sans);margin-top:.75rem;width:fit-content;}
+.exp-more-btn:hover{background:rgba(99,179,237,.15);transform:translateX(2px);}
+.exp-more-btn svg{transition:transform .2s;}
+.exp-more-btn:hover svg{transform:translateX(3px);}
 
 /* ─── PROJECTS ─── */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.25rem;}
@@ -246,7 +241,6 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
 
 <div id="particles"></div>
 
-<!-- NAV -->
 <nav>
   <span class="nav-logo"><span class="nav-dot"></span>abdenbi.dev</span>
   <ul class="nav-links">
@@ -260,7 +254,6 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
   <a href="mailto:abdouiabbadene@gmail.com" class="nav-cta">Me contacter</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-bg">
     <div class="hero-bg-grid"></div>
@@ -281,7 +274,7 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
         Je conçois des <strong>systèmes IA</strong> de bout en bout — du 
         <strong>Machine Learning classique</strong> aux <strong>agents LLM autonomes</strong>
         en production  .<br/>
-        
+         
         Passionné par la <strong>GenAI, l'IA agentique</strong> et de la  <strong>data science appliquée</strong>
         à des cas métiers complexes<br/>
         Agents IA · LLMs · Data Science · Automation.
@@ -330,7 +323,6 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-wrap">
     <div class="sec-eyebrow r"><span class="sec-tag">À propos</span><div class="sec-line"></div></div>
@@ -363,15 +355,13 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="section-wrap">
     <div class="sec-eyebrow r"><span class="sec-tag">Parcours</span><div class="sec-line"></div></div>
     <h2 class="r">Expériences</h2>
     <div class="exp-timeline">
 
-      <!-- ALTERNANCE -->
-      <div class="exp-block featured r">
+      <div class="exp-block featured r" onclick="openModal('exp-m1')">
         <div class="exp-card">
           <div class="exp-head">
             <div>
@@ -385,23 +375,14 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
             <li><strong>Top 10% au challenge ML Crédit Agricole</strong> (29/349) — prédiction de prime pure Incendie par Machine Learning.</li>
             <li><strong>Développement d'un chatbot actuariel</strong> basé sur une base de connaissances de mémoires réels.</li>
           </ul>
-          <ul class="exp-bullets exp-more" id="more-1">
-            <li><strong>Analyse, nettoyage et structuration</strong> de données financières complexes issues de rapports SFCR (Solvabilité II).</li>
-            <li><strong>Entraînement et optimisation de modèles Machine Learning</strong> pour la prédiction de primes d'assurance.</li>
-            <li><strong>Création d'agents spécialisés</strong> (extraction, validation, enrichissement, synthèse) avec LangGraph, LlamaIndex, Smlagents et monitoring Langfuse.</li>
-            <li><strong>Prototypage d'applications IA</strong> avec Streamlit pour la mise à disposition rapide des modèles aux équipes métiers.</li>
-            <li><strong>Automatisation complète</strong> du flux analyse/nettoyage des données avec macros SAS & Python — réduction significative du temps de traitement.</li>
-            <li>Reporting et visualisation des résultats avec Python et Power BI.</li>
-          </ul>
-          <button class="exp-more-btn" onclick="toggleMore('more-1', this)">
-            Voir plus <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          <button class="exp-more-btn">
+            Voir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
           <div class="tags"><span class="tag">LangGraph</span><span class="tag">LlamaIndex</span><span class="tag">Smlagents</span><span class="tag">Langfuse</span><span class="tag">SAS</span><span class="tag">Power BI</span><span class="tag">Streamlit</span><span class="tag">Python</span></div>
         </div>
       </div>
 
-      <!-- AUDENCIA -->
-      <div class="exp-block r">
+      <div class="exp-block r" onclick="openModal('exp-m2')">
         <div class="exp-card">
           <div class="exp-head">
             <div>
@@ -415,20 +396,14 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
             <li><strong>Formulaire IA d'orientation intelligente</strong> — analyse des réponses des étudiants pour recommander automatiquement spécialité, stage et entreprises adaptés.</li>
             <li><strong>Création d'un chatbot</strong> pour accompagner les étudiants dans leur parcours de manière personnalisée.</li>
           </ul>
-          <ul class="exp-bullets exp-more" id="more-2">
-            <li><strong>Consolidation de plusieurs sources CRM</strong> — nettoyage et structuration des données étudiants et prospects.</li>
-            <li><strong>Recommandations data-driven</strong> pour optimiser les campagnes de communication et le ciblage des prospects.</li>
-            <li>Participation active aux réunions de la direction pour présenter les résultats et insights data.</li>
-          </ul>
-          <button class="exp-more-btn" onclick="toggleMore('more-2', this)">
-            Voir plus <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          <button class="exp-more-btn">
+            Voir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
           <div class="tags"><span class="tag">CRM</span><span class="tag">Excel</span><span class="tag">Qlik</span><span class="tag">Chatbot</span><span class="tag">IA générative</span><span class="tag">Python</span></div>
         </div>
       </div>
 
-      <!-- TRADING -->
-      <div class="exp-block r">
+      <div class="exp-block r" onclick="openModal('exp-m3')">
         <div class="exp-card">
           <div class="exp-head">
             <div>
@@ -442,20 +417,14 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
             <li><strong>Backtesting rigoureux</strong> sur données historiques : <strong>+8% de bénéfice moyen sur 2 mois</strong>.</li>
             <li><strong>Visualisation</strong> des performances des stratégies via dashboards analytiques interactifs.</li>
           </ul>
-          <ul class="exp-bullets exp-more" id="more-3">
-            <li><strong>Collecte et analyse de données</strong> Bitcoin en temps réel — feature engineering sur 50+ indicateurs techniques.</li>
-            <li><strong>Sélection de features avec XGBoost</strong> pour identifier les variables les plus prédictives et réduire le surapprentissage.</li>
-            <li>Comparaison des performances entre chaque architecture individuelle et le modèle ensembliste final.</li>
-          </ul>
-          <button class="exp-more-btn" onclick="toggleMore('more-3', this)">
-            Voir plus <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          <button class="exp-more-btn">
+            Voir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
           <div class="tags"><span class="tag">LSTM</span><span class="tag">PyTorch</span><span class="tag">XGBoost</span><span class="tag">Binance API</span><span class="tag">Deep Learning</span><span class="tag">Python</span></div>
         </div>
       </div>
 
-      <!-- AUTO-ENTREPRENEUR -->
-      <div class="exp-block r">
+      <div class="exp-block r" onclick="openModal('exp-m4')">
         <div class="exp-card">
           <div class="exp-head">
             <div>
@@ -469,13 +438,8 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
             <li><strong>Management d'une équipe de 5 personnes</strong> — coordination, organisation et suivi des performances.</li>
             <li><strong>35 000 abonnés TikTok & 5 000 abonnés Facebook</strong> — création de contenu et community management.</li>
           </ul>
-          <ul class="exp-bullets exp-more" id="more-4">
-            <li><strong>Analyse des données de vente</strong> et élaboration de rapports financiers pour optimiser les décisions stratégiques.</li>
-            <li><strong>Gestion des réseaux sociaux</strong> : stratégie de contenu, planification des publications et animation des communautés.</li>
-            <li>Négociation avec les fournisseurs et optimisation des marges commerciales.</li>
-          </ul>
-          <button class="exp-more-btn" onclick="toggleMore('more-4', this)">
-            Voir plus <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          <button class="exp-more-btn">
+            Voir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
           <div class="tags"><span class="tag">Management</span><span class="tag">Gestion commerciale</span><span class="tag">TikTok</span><span class="tag">Community Management</span><span class="tag">Analyse financière</span></div>
         </div>
@@ -485,7 +449,6 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-wrap">
     <div class="sec-eyebrow r"><span class="sec-tag">Réalisations</span><div class="sec-line"></div></div>
@@ -529,7 +492,109 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
   </div>
 </section>
 
-<!-- MODALS -->
+<div class="modal-overlay" id="exp-m1" onclick="closeModalOutside(event,'exp-m1')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('exp-m1')">✕</button>
+    <span class="modal-icon">⭐</span>
+    <div class="modal-title">Data Science & IA générative</div>
+    <div class="modal-sub">Dataltist · Filiale data & IA du groupe Forsides · Paris</div>
+    <div class="modal-result">Sept. 2025 – Aujourd'hui</div>
+    <div class="modal-section">
+      <div class="modal-section-title">Missions principales & Réalisations</div>
+      <ul class="modal-list">
+        <li><strong>Conception et orchestration d'un système multi-agents IA</strong> pour l'extraction automatique de tableaux financiers (QRT) — pipeline de bout en bout.</li>
+        <li><strong>Top 10% au challenge ML Crédit Agricole</strong> (29/349) — prédiction de prime pure Incendie par Machine Learning.</li>
+        <li><strong>Développement d'un chatbot actuariel</strong> basé sur une base de connaissances de mémoires réels.</li>
+        <li><strong>Analyse, nettoyage et structuration</strong> de données financières complexes issues de rapports SFCR (Solvabilité II).</li>
+        <li><strong>Entraînement et optimisation de modèles Machine Learning</strong> pour la prédiction de primes d'assurance.</li>
+        <li><strong>Création d'agents spécialisés</strong> (extraction, validation, enrichissement, synthèse) avec LangGraph, LlamaIndex, Smlagents et monitoring Langfuse.</li>
+        <li><strong>Prototypage d'applications IA</strong> avec Streamlit pour la mise à disposition rapide des modèles aux équipes métiers.</li>
+        <li><strong>Automatisation complète</strong> du flux analyse/nettoyage des données avec macros SAS & Python — réduction significative du temps de traitement.</li>
+        <li>Reporting et visualisation des résultats avec Python et Power BI.</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Stack technique</div>
+      <div class="modal-tags"><span class="modal-tag">LangGraph</span><span class="modal-tag">LlamaIndex</span><span class="modal-tag">Smlagents</span><span class="modal-tag">Langfuse</span><span class="modal-tag">SAS</span><span class="modal-tag">Power BI</span><span class="modal-tag">Streamlit</span><span class="modal-tag">Python</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="exp-m2" onclick="closeModalOutside(event,'exp-m2')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('exp-m2')">✕</button>
+    <span class="modal-icon">📊</span>
+    <div class="modal-title">Data Analyst & Projets IA</div>
+    <div class="modal-sub">Audencia Business School · Nantes</div>
+    <div class="modal-result">Avr. – Août 2025</div>
+    <div class="modal-section">
+      <div class="modal-section-title">Missions principales & Réalisations</div>
+      <ul class="modal-list">
+        <li><strong>Analyse et visualisation des données CRM</strong> via Excel avancé et Qlik — tableaux de bord interactifs pour la direction Marketing.</li>
+        <li><strong>Formulaire IA d'orientation intelligente</strong> — analyse des réponses des étudiants pour recommander automatiquement spécialité, stage et entreprises adaptés.</li>
+        <li><strong>Création d'un chatbot</strong> pour accompagner les étudiants dans leur parcours de manière personnalisée.</li>
+        <li><strong>Consolidation de plusieurs sources CRM</strong> — nettoyage et structuration des données étudiants et prospects.</li>
+        <li><strong>Recommandations data-driven</strong> pour optimiser les campagnes de communication et le ciblage des prospects.</li>
+        <li>Participation active aux réunions de la direction pour présenter les résultats et insights data.</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Stack technique</div>
+      <div class="modal-tags"><span class="modal-tag">CRM</span><span class="modal-tag">Excel</span><span class="modal-tag">Qlik</span><span class="modal-tag">Chatbot</span><span class="modal-tag">IA générative</span><span class="modal-tag">Python</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="exp-m3" onclick="closeModalOutside(event,'exp-m3')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('exp-m3')">✕</button>
+    <span class="modal-icon">📈</span>
+    <div class="modal-title">Projet de fin d'étude — Trading Algorithmique par IA</div>
+    <div class="modal-sub">Université Mouloud Mammeri · Master Intelligence Artificielle</div>
+    <div class="modal-result">Fév. – Sept. 2024</div>
+    <div class="modal-section">
+      <div class="modal-section-title">Missions principales & Réalisations</div>
+      <ul class="modal-list">
+        <li><strong>Entraînement de modèles Deep Learning ensemblistes</strong> (LSTM, BLSTM, attention) sur données Bitcoin via API Binance.</li>
+        <li><strong>Backtesting rigoureux</strong> sur données historiques : <strong>+8% de bénéfice moyen sur 2 mois</strong>.</li>
+        <li><strong>Visualisation</strong> des performances des stratégies via dashboards analytiques interactifs.</li>
+        <li><strong>Collecte et analyse de données</strong> Bitcoin en temps réel — feature engineering sur 50+ indicateurs techniques.</li>
+        <li><strong>Sélection de features avec XGBoost</strong> pour identifier les variables les plus prédictives et réduire le surapprentissage.</li>
+        <li>Comparaison des performances entre chaque architecture individuelle et le modèle ensembliste final.</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Stack technique</div>
+      <div class="modal-tags"><span class="modal-tag">LSTM</span><span class="modal-tag">PyTorch</span><span class="modal-tag">XGBoost</span><span class="modal-tag">Binance API</span><span class="modal-tag">Deep Learning</span><span class="modal-tag">Python</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="exp-m4" onclick="closeModalOutside(event,'exp-m4')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('exp-m4')">✕</button>
+    <span class="modal-icon">💼</span>
+    <div class="modal-title">Gérant & Auto-entrepreneur</div>
+    <div class="modal-sub">2 Boutiques de prêt-à-porter homme · Tizi Ouzou, Algérie</div>
+    <div class="modal-result">2020 – 2024</div>
+    <div class="modal-section">
+      <div class="modal-section-title">Missions principales & Réalisations</div>
+      <ul class="modal-list">
+        <li><strong>Gestion complète de 2 boutiques</strong> : commandes, livraisons, relations fournisseurs et gestion des stocks.</li>
+        <li><strong>Management d'une équipe de 5 personnes</strong> — coordination, organisation et suivi des performances.</li>
+        <li><strong>35 000 abonnés TikTok & 5 000 abonnés Facebook</strong> — création de contenu et community management.</li>
+        <li><strong>Analyse des données de vente</strong> et élaboration de rapports financiers pour optimiser les décisions stratégiques.</li>
+        <li><strong>Gestion des réseaux sociaux</strong> : stratégie de contenu, planification des publications et animation des communautés.</li>
+        <li>Négociation avec les fournisseurs et optimisation des marges commerciales.</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Compétences clés</div>
+      <div class="modal-tags"><span class="modal-tag">Management</span><span class="modal-tag">Gestion commerciale</span><span class="modal-tag">TikTok</span><span class="modal-tag">Community Management</span><span class="modal-tag">Analyse financière</span></div>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="m1" onclick="closeModalOutside(event,'m1')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('m1')">✕</button>
@@ -615,7 +680,7 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
     <div class="modal-result">🥇 Classement : 29 / 349 équipes · Top 10%</div>
     <div class="modal-section">
       <div class="modal-section-title">Contexte</div>
-      <p class="modal-text">Challenge Machine Learning organisé par Crédit Agricole Assurance ouvert à des étudiants et professionnels. L'objectif était de prédire la <strong>prime pure Incendie</strong> (coût attendu des sinistres) à partir de données de contrats d'assurance habitation.</p>
+      <p class="modal-text">Challenge Machine Learning organisé by Crédit Agricole Assurance ouvert à des étudiants et professionnels. L'objectif était de prédire la <strong>prime pure Incendie</strong> (coût attendu des sinistres) à partir de données de contrats d'assurance habitation.</p>
     </div>
     <div class="modal-section">
       <div class="modal-section-title">Approche</div>
@@ -642,7 +707,6 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
   </div>
 </div>
 
-<!-- LIFE -->
 <div class="life-full" id="life" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="life-inner">
     <div class="sec-eyebrow r"><span class="sec-tag">En dehors du code</span><div class="sec-line"></div></div>
@@ -697,7 +761,6 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
   </div>
 </div>
 
-<!-- STACK -->
 <section id="stack">
   <div class="section-wrap">
     <div class="sec-eyebrow r"><span class="sec-tag">Outils</span><div class="sec-line"></div></div>
@@ -711,7 +774,6 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-wrap">
     <div class="contact-box r">
@@ -814,15 +876,6 @@ window.addEventListener('scroll',()=>{
     a.classList.toggle('active',active);
   });
 },{passive:true});
-window.toggleMore = function(id, btn){
-  const el = document.getElementById(id);
-  const open = !el.classList.contains('visible');
-  el.classList.toggle('visible', open);
-  btn.classList.toggle('open', open);
-  btn.innerHTML = open
-    ? 'Voir moins <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
-    : 'Voir plus <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>';
-}
 </script>
 </body>
 </html>
