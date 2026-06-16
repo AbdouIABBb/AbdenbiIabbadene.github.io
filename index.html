@@ -814,7 +814,7 @@ window.addEventListener('scroll',()=>{
     a.classList.toggle('active',active);
   });
 },{passive:true});
-function toggleMore(id, btn){
+window.toggleMore = function(id, btn){
   const el = document.getElementById(id);
   const open = !el.classList.contains('visible');
   el.classList.toggle('visible', open);
