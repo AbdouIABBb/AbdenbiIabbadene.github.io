@@ -429,7 +429,7 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
           <div class="exp-head">
             <div>
               <div class="exp-role">Gérant & Auto-entrepreneur</div>
-              <div class="exp-co">2 Boutiques de prêt-à-porter homme · Tizi Ouzou, Algérie</div>
+              <div class="exp-co">2 Boutiques de prêt-à-porter homme · VIP MAN · Tizi Ouzou, Algérie</div>
             </div>
             <div class="exp-meta"><span class="exp-date">2020 – 2024</span></div>
           </div>
@@ -488,9 +488,89 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
         <button class="proj-more-btn">Voir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
 
+      <div class="proj-card p1 r d3" onclick="openModal('m4')">
+        <div class="proj-top">
+          <div class="proj-icon">📊</div>
+          <div class="proj-result">Multi-Agents & BI</div>
+        </div>
+        <div class="proj-name">Dataltist BI (Multi-Agents)</div>
+        <div class="proj-desc">Système IA collaboratif (Analyseur, Exécuteur, Reporter) automatisant l'analyse exploratoire, la visualisation et la génération de rapports Excel multi-pages avec graphiques intégrés.</div>
+        <div class="tags"><span class="tag">Matplotlib</span><span class="tag">Ollama</span><span class="tag">Llama 3 / DeepSeek</span></div>
+        <button class="proj-more-btn">Voir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+
+      <div class="proj-card p2 r d1" onclick="openModal('m5')">
+        <div class="proj-top">
+          <div class="proj-icon">💬</div>
+          <div class="proj-result">RAG & Web Search</div>
+        </div>
+        <div class="proj-name">Chatbot Actuariel & Web Tooling</div>
+        <div class="proj-desc">Maintenance et optimisation d'un assistant RAG spécialisé en actuariat, interconnecté à une base de mémoires professionnels et doté d'outils de recherche web en temps réel.</div>
+        <div class="tags"><span class="tag">RAG Avançé</span><span class="tag">Web Tools</span><span class="tag">Sources & Citations</span></div>
+        <button class="proj-more-btn">Voir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+
+      
+
     </div>
   </div>
 </section>
+
+<div class="modal-overlay" id="m4" onclick="closeModalOutside(event,'m4')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('m4')">✕</button>
+    <span class="modal-icon">📊</span>
+    <div class="modal-title">Dataltist BI (Multi-Agents)</div>
+    <div class="modal-sub">AI Engineering & Business Intelligence · 2026</div>
+    <div class="modal-result">🟢 Fonctionnel · Hybride Public/Local</div>
+    <div class="modal-section">
+      <div class="modal-section-title">Concept & Architecture</div>
+      <p class="modal-text">Développement d'un écosystème d'analyse de données automatisé reposant sur l'interaction de <strong>3 agents IA spécialisés</strong> :</p>
+      <ul class="modal-list" style="margin-top: 0.5rem;">
+        <li><strong>Agent Analyseur :</strong> Reçoit les datasets utilisateur (fichiers CSV ou Excel) ainsi que le prompt métier. Il planifie la stratégie d'exploration.</li>
+        <li><strong>Agent Exécuteur :</strong> Génère et exécute dynamiquement du code Python pour manipuler la donnée et créer des visualisations avancées (Matplotlib, Seaborn).</li>
+        <li><strong>Agent Reporter :</strong> Compile les analyses et réinjecte les graphiques directement au sein de fichiers Excel complexes et structurés sur plusieurs pages (onglets thématiques).</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Flexibilité des LLM</div>
+      <p class="modal-text">Le système a été conçu pour basculer de manière transparente entre deux configurations selon les contraintes de confidentialité :</p>
+      <ul class="modal-list" style="margin-top: 0.5rem;">
+        <li><strong>Version Cloud :</strong> Utilisation de LLM publics de pointe pour une puissance de raisonnement maximale sur des requêtes complexes.</li>
+        <li><strong>Version Souveraine / Locale :</strong> Intégration via <strong>Ollama</strong> exécutant des modèles open-source en local (<strong>Llama 3 8B</strong> et <strong>DeepSeek 16B Q4</strong>) assurant une isolation totale des données financières sensibles.</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Stack technique</div>
+      <div class="modal-tags"><span class="modal-tag">Python</span><span class="modal-tag">Ollama</span><span class="modal-tag">Llama 3 (8B)</span><span class="modal-tag">DeepSeek (16B Q4)</span><span class="modal-tag">Matplotlib</span><span class="modal-tag">Seaborn</span><span class="modal-tag">Openpyxl / Pandas</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="m5" onclick="closeModalOutside(event,'m5')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('m5')">✕</button>
+    <span class="modal-icon">💬</span>
+    <div class="modal-title">Chatbot Actuariel & Web Tooling</div>
+    <div class="modal-sub">Maintenance Évolutive & RAG Expert · 2026</div>
+    <div class="modal-result">🔍 Recherche Augmentée & Traçabilité</div>
+    <div class="modal-section">
+      <div class="modal-section-title">Missions & Optimisations</div>
+      <p class="modal-text">Prise en charge de la maintenance corrective et évolutive d'un assistant virtuel intelligent taillé pour les problématiques actuarielles complexes.</p>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Fonctionnalités clés implantées</div>
+      <ul class="modal-list">
+        <li><strong>RAG Actuariel Avancé :</strong> Requêtage précis indexé sur une vaste base documentaire regroupant des mémoires et thèses réels en actuariat. Le système formule des réponses expertes assorties de citations exactes des <strong>sources d'origine</strong>.</li>
+        <li><strong>Interconnexion Web (Tooling) :</strong> Extension des capacités cognitives du modèle grâce à l'intégration d'outils de recherche en temps réel sur Internet. Si la réponse ne figure pas dans la base interne, le chatbot va chercher l'information fraîche sur le web pour contextualiser ses calculs ou explications.</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Stack technique</div>
+      <div class="modal-tags"><span class="modal-tag">RAG Architecture</span><span class="modal-tag">Function Calling</span><span class="modal-tag">Web Search APIs</span><span class="modal-tag">Vector Store</span><span class="modal-tag">Python</span><span class="modal-tag">LLM Orchestration</span></div>
+    </div>
+  </div>
+</div>
 
 <div class="modal-overlay" id="exp-m1" onclick="closeModalOutside(event,'exp-m1')">
   <div class="modal">
