@@ -679,38 +679,56 @@ footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:v
   <div class="modal">
     <button class="modal-close" onclick="closeModal('m1')">✕</button>
     <span class="modal-icon">🤖</span>
+
     <div class="modal-title">Système multi-agents SFCR</div>
-    <div class="modal-sub">Dataltist – Forsides · Paris · 2025</div>
+    <div class="modal-sub">Dataltist – Forsides · Paris · 2026</div>
     <div class="modal-result">🟢 En production</div>
+
     <div class="modal-section">
       <div class="modal-section-title">Contexte & Problème</div>
-      <p class="modal-text">Dans le secteur de l'assurance, les rapports SFCR (Solvency and Financial Condition Report) contiennent des dizaines de tableaux financiers (QRT) dans des formats hétérogènes et complexes. L'extraction manuelle de ces données est chronophage et source d'erreurs.</p>
+      <p class="modal-text">
+        Dans le secteur de l'assurance, les rapports SFCR (Solvency and Financial Condition Report) contiennent de nombreux tableaux réglementaires (QRT) au format PDF, complexes et hétérogènes.
+        Leur extraction automatique est difficile en raison de structures non standardisées, de tableaux multi-pages, de cellules fusionnées et de la qualité variable des documents scannés.
+      </p>
     </div>
+
     <div class="modal-section">
       <div class="modal-section-title">Solution développée</div>
       <ul class="modal-list">
-        <li><strong>Architecture multi-agents orchestrée avec LangGraph</strong> : agents spécialisés séparés pour l'extraction, la validation, l'enrichissement et la synthèse des données.</li>
-        <li><strong>RAG (Retrieval-Augmented Generation)</strong> avec LlamaIndex pour indexer et requêter intelligemment les rapports SFCR.</li>
-        <li><strong>Monitoring en temps réel</strong> avec Langfuse pour tracer les appels LLM, détecter les anomalies et optimiser les coûts.</li>
-        <li><strong>Pipeline de bout en bout</strong> : ingestion PDF → extraction structurée → validation → stockage → reporting Power BI.</li>
-        <li><strong>Automatisation SAS</strong> pour le nettoyage et la transformation des données brutes.</li>
+        <li><strong>Pipeline OCR open source</strong> spécialisé pour extraire le texte et les structures de tableaux depuis des PDF financiers.</li>
+        <li><strong>Clustering non supervisé (DBSCAN)</strong> pour regrouper les blocs OCR et reconstruire la structure des lignes et colonnes des tableaux.</li>
+        <li><strong>Agent LLM vision</strong> pour contrôler la cohérence des tableaux reconstruits et corriger les erreurs d’alignement ou de structure.</li>
+        <li><strong>Système multi-agents</strong> avec séparation des rôles : extraction, regroupement, validation et correction des données.</li>
+        <li><strong>Post-traitement automatisé</strong> pour structurer les données et les rendre exploitables pour l’analyse réglementaire.</li>
       </ul>
     </div>
+
     <div class="modal-section">
       <div class="modal-section-title">Impact</div>
       <ul class="modal-list">
-        <li>Réduction significative du temps d'extraction et d'analyse des tableaux financiers.</li>
-        <li>Amélioration de la fiabilité et de la traçabilité des données extraites.</li>
-        <li>Pipeline réutilisable et maintenable sur l'ensemble des rapports SFCR.</li>
+        <li>Automatisation avancée de l’extraction des tableaux QRT SFCR.</li>
+        <li>Réduction des erreurs liées à l’OCR brut et amélioration de la qualité des données.</li>
+        <li>Reconstruction plus fiable des structures tabulaires complexes.</li>
+        <li>Pipeline scalable sur différents formats de rapports assureurs.</li>
       </ul>
     </div>
+
     <div class="modal-section">
       <div class="modal-section-title">Stack technique</div>
-      <div class="modal-tags"><span class="modal-tag">LangGraph</span><span class="modal-tag">LlamaIndex</span><span class="modal-tag">Smlagents</span><span class="modal-tag">Langfuse</span><span class="modal-tag">Python</span><span class="modal-tag">SAS</span><span class="modal-tag">Power BI</span><span class="modal-tag">RAG</span><span class="modal-tag">LLM</span></div>
+      <div class="modal-tags">
+        <span class="modal-tag">Python</span>
+        <span class="modal-tag">OCR Open Source</span>
+        <span class="modal-tag">Computer Vision</span>
+        <span class="modal-tag">LLM Vision</span>
+        <span class="modal-tag">DBSCAN</span>
+        <span class="modal-tag">Clustering non supervisé</span>
+        <span class="modal-tag">Multi-Agent Systems</span>
+        <span class="modal-tag">NLP</span>
+      </div>
     </div>
+
   </div>
 </div>
-
 <div class="modal-overlay" id="m2" onclick="closeModalOutside(event,'m2')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('m2')">✕</button>
